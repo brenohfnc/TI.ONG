@@ -6,100 +6,127 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <script type="text/javascript" src="cordova.js"></script>
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+        <script src="scripts/jquery/jquery.validate.min.js"></script>
         <script type="text/javascript" src="scripts/main.js"></script>
         <title>Cadastro</title>
     </head>
     <body>
-        <div class="form-group">
-            <label for="nome" class="col-lg-3 control-label optional">Nome</label>
-            <div class="col-lg-6">
-                <input type="text" name="nome" id="nome" placeholder="Digite o seu Nome" class="form-control">
+        <div data-role="page">
+            <div data-role="header">
+                <a href="index.html" data-icon="home" data-role="button">Home</a>
+                <h1>Cadastro</h1>
+            </div>
+            <br><br><br><br><br>
+            <div data-role="content">
+                <div class="container" align="center">
+                    <div class="jumbotron">
+                        <h1>ASPEC</h1>
+                        <p>Cadastro</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-lg-offset-3">
+                    <div class="alert alert-danger fade in alert-dismissable" style="display:none;">
+                        <a href="#" class="close" aria-label="close" title="close">×</a>
+                        <span></span>
+                    </div>
+                    <div class="alert alert-success fade in alert-dismissable" style="display:none;">
+                        <a href="#" class="close" aria-label="close" title="close">×</a>
+                        <span></span>
+                    </div>
+                </div>
+                <form>
+                    <fieldset data-role="fieldcontain">
+                        <label for="nome">Nome</label>
+                        <input type="text" name="nome" id="nome" required data-nome="Nome">
+                    </fieldset>
+                    <fieldset data-role="fieldcontain">
+                        <label for="cpfcnpj">CPF/CNPJ</label>
+                        <input type="text" name="cpfcnpj" id="cpfcnpj" required data-nome="CPF/CNPJ">
+                    </fieldset>
+                    <fieldset data-role="fieldcontain">
+                        <label for="senha">Senha</label>
+                        <input type="password" name="senha" id="senha" required data-nome="Senha">
+                    </fieldset>
+                    <fieldset data-role="fieldcontain">
+                        <label for="data">Data de nascimento</label>
+                        <input type="date" name="data" id="data" required data-nome="Data de nascimento">
+                    </fieldset>
+                    <fieldset data-role="fieldcontain">
+                        <label for="telefone">Telefone</label>
+                        <input type="tel" name="telefone" id="telefone" data-nome="Telefone">
+                    </fieldset>
+                    <fieldset data-role="fieldcontain">
+                        <label for="email">E-mail</label>
+                        <input type="email" name="email" required id="email" data-nome="E-mail">
+                    </fieldset>
+                    <fieldset data-role="fieldcontain">
+                        <label for="sexo">Sexo</label>
+                        <select name="sexo" id="sexo" required data-nome="Sexo">
+                            <option value="">Selecione...</option>
+                            <option value="Feminino">Feminino</option>
+                            <option value="Masculino">Masculino</option>
+                        </select>
+                    </fieldset>
+                    <fieldset data-role="fieldcontain">
+                        <label for="rua">Rua</label>
+                        <input type="text" name="rua" required id="rua" data-nome="Rua">
+                    </fieldset>
+                    <fieldset data-role="fieldcontain">
+                        <label for="numero">Número</label>
+                        <input type="text" name="numero" required id="numero" data-nome="Número">
+                    </fieldset>
+                    <fieldset data-role="fieldcontain">
+                        <label for="bairro">Bairro</label>
+                        <input type="text" name="bairro" required id="bairro" data-nome="Bairro">
+                    </fieldset>
+                    <fieldset data-role="fieldcontain">
+                        <label for="cep">CEP</label>
+                        <input type="text" name="cep" required id="cep" data-nome="CEP">
+                    </fieldset>
+                    <fieldset data-role="fieldcontain">
+                        <label for="cidade">Cidade</label>
+                        <input type="text" name="cidade" required id="cidade" data-nome="Cidade">
+                    </fieldset>
+                    <fieldset data-role="fieldcontain">
+                        <label for="perfil">Tipo de cadastro</label>
+                        <select name="perfil" id="perfil" required data-nome="Tipo de cadastro">
+                            <option value="">Selecione...</option>
+                            <option value="Associado">Associado</option>
+                            <option value="Assistido">Assistido</option>
+                        </select>
+                    </fieldset>
+                    <input type="button" data-role="button" data-icon="check" data-theme="b" onclick="FinalizarCadastro();" value="Finalizar cadastro" />
+                </form>
             </div>
         </div>
-        <div class="form-group">
-            <label for="cpfcnpj" class="col-lg-3 control-label optional">CPF</label>
-            <div class="col-lg-6">
-                <input type="text" name="cpfcnpj" id="cpfcnpj" placeholder="Digite seu CPF" class="form-control">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="date" class="col-lg-3 control-label optional">Data de Nascimento</label>
-            <div class="col-lg-7">
-                <input type="date" name="data" id="data" placeholder="Digite sua data de Nascimento" class="form-control">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="telefone" class="col-lg-3 control-label optional">Telefone</label>
-            <div class="col-lg-7">
-                <input type="number" name="telefone" id="telefone" placeholder="Digite seu Telefone" class="form-control">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="email" class="col-lg-3 control-label optional">Email</label>
-            <div class="col-lg-7">
-                <input type="email" name="email" id="email" value="" placeholder="Digite seu Email" class="form-control">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="sexo" class="col-lg-3 control-label optional">Sexo</label>
-            <div class="col-lg-7">
-                <select id="sexo" name="sexo" class="form-control">
-                    <option value="">Escolha seu sexo </option>
-                    <option value="Masculino">Masculino</option>
-                    <option value="Feminino">Feminino</option>
-                </select>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-lg-3 control-label optional">Endereço</label>
-        </div>
-        <div class="form-group">
-            <label for="rua" class="col-lg-3 control-label optional">Rua</label>
-            <div class="col-lg-7">
-                <input type="text" name="rua" id="rua" placeholder="Digite o Nome da Rua" class="form-control">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="numero" class="col-lg-3 control-label optional">Número</label>
-            <div class="col-lg-7">
-                <input type="text" name="numero" id="numero" placeholder="Digite o número da casa" class="form-control">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="bairro" class="col-lg-3 control-label optional">Bairro</label>
-            <div class="col-lg-7">
-                <input type="text" name="bairro" id="bairro" value="" placeholder="Digite seu Bairro" class="form-control">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="cep" class="col-lg-3 control-label optional">CEP</label>
-            <div class="col-lg-7">
-                <input type="text" name="cep" id="cep" placeholder="Digite seu CEP" class="form-control">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="cidade" class="col-lg-3 control-label optional">Cidade</label>
-            <div class="col-lg-7">
-                <input type="text" name="cidade" id="cidade" value="" placeholder="Digite seu CPF" class="form-control">
-            </div>
-        </div>
+        <script type="text/javascript">
+            function FinalizarCadastro() {
+                if (ValidarCampos()) {
+                    $.ajax({
+                        url: 'http://127.0.0.1:8081/Usuario/Cadastro',
+                        type: 'POST',
+                        contentType: 'application/json',
+                        dataType: 'json',
+                        data: JSON.stringify($('form').serialize())
+                    }).done(function (result) {
+                        SalvarSessao(result);
 
-        <div class="form-group">
-            <label for="tipo" class="col-lg-3 control-label optional">Tipo de Conta</label>
-            <div class="col-lg-7">
-                <label><input name="perfil" type="radio" value="Associado" />Associado</label>
-                <label><input name="perfil" type="radio" value="Assistido" />Assistido</label>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-lg-9">
-                <button type="button">Finalizar Cadastro</button>
-            </div>
-        </div>
+                        if (result.Perfil[0].hasOwnProperty('Associado')) {
+                            NavegarParaPagina('associado.html');
+                        } else if (result.Perfil[0].hasOwnProperty('Assistido')) {
+                            NavegarParaPagina('assistido.html');
+                        } else {
+                            NavegarParaPagina('admin.html');
+                        }
+                    }).error(function (xhr, status, error) {
+                        MostrarErros(xhr);
+                    });
+                }
+            }
+        </script>
     </body>
 </html>

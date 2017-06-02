@@ -36,12 +36,20 @@ function MostrarErros(xhr) {
     $('.alert-danger').show();
 }
 
+function MostrarSucessos(successMsg) {
+    $('.alert-success').children('span').html(successMsg);
+    $('.alert-success').show();
+}
+
 function SalvarSessao(obj) {
     window.localStorage.setItem('Sessao', JSON.stringify(obj));
 }
 
 function GetSessao() {
-    return JSON.parse(window.localStorage['Sessao']);
+    if (window.localStorage['Sessao'] != '{}') {
+        return JSON.parse(window.localStorage['Sessao']);
+    } 
+    return null;
 }
 
 function VerificarLogado() {
@@ -55,6 +63,14 @@ function FazerLogout() {
     NavegarParaPagina('index.html');
 }
 
+function ValidarCampos() {
+    $.validator.messages.required = function (param, input) {
+        return `O campo ${$(input).data("nome")} é obrigatório`;
+    }
+
+    return $('form').valid();
+}
+
 $(document).ajaxStart(function () {
     $('.alert-danger').hide();
     $(".loader").css("display", "block");
@@ -65,7 +81,7 @@ $(document).ajaxComplete(function () {
 });
 
 $(document).on('click', '.close', function () {
-    $('.alert-danger').hide();
+    $(this).parent('.alert').hide();
 });
 
 

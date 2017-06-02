@@ -8,6 +8,14 @@
     animation: spin 2s linear infinite;
 }
 
+label.error {
+    float: left;
+    color: red;
+    padding-top: .5em;
+    vertical-align: top;
+    font-weight: bold
+}
+
 @-webkit-keyframes spin {
     0% {
         -webkit-transform: rotate(0deg);
