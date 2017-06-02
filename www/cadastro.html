@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <script type="text/javascript" src="cordova.js"></script>
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+        <script type="text/javascript" src="scripts/main.js"></script>
+        <title>Cadastro</title>
+    </head>
+    <body>
+        <div class="form-group">
+            <label for="nome" class="col-lg-3 control-label optional">Nome</label>
+            <div class="col-lg-6">
+                <input type="text" name="nome" id="nome" placeholder="Digite o seu Nome" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="cpfcnpj" class="col-lg-3 control-label optional">CPF</label>
+            <div class="col-lg-6">
+                <input type="text" name="cpfcnpj" id="cpfcnpj" placeholder="Digite seu CPF" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="date" class="col-lg-3 control-label optional">Data de Nascimento</label>
+            <div class="col-lg-7">
+                <input type="date" name="data" id="data" placeholder="Digite sua data de Nascimento" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="telefone" class="col-lg-3 control-label optional">Telefone</label>
+            <div class="col-lg-7">
+                <input type="number" name="telefone" id="telefone" placeholder="Digite seu Telefone" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email" class="col-lg-3 control-label optional">Email</label>
+            <div class="col-lg-7">
+                <input type="email" name="email" id="email" value="" placeholder="Digite seu Email" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="sexo" class="col-lg-3 control-label optional">Sexo</label>
+            <div class="col-lg-7">
+                <select id="sexo" name="sexo" class="form-control">
+                    <option value="">Escolha seu sexo </option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Feminino">Feminino</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-3 control-label optional">Endereço</label>
+        </div>
+        <div class="form-group">
+            <label for="rua" class="col-lg-3 control-label optional">Rua</label>
+            <div class="col-lg-7">
+                <input type="text" name="rua" id="rua" placeholder="Digite o Nome da Rua" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="numero" class="col-lg-3 control-label optional">Número</label>
+            <div class="col-lg-7">
+                <input type="text" name="numero" id="numero" placeholder="Digite o número da casa" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="bairro" class="col-lg-3 control-label optional">Bairro</label>
+            <div class="col-lg-7">
+                <input type="text" name="bairro" id="bairro" value="" placeholder="Digite seu Bairro" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="cep" class="col-lg-3 control-label optional">CEP</label>
+            <div class="col-lg-7">
+                <input type="text" name="cep" id="cep" placeholder="Digite seu CEP" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="cidade" class="col-lg-3 control-label optional">Cidade</label>
+            <div class="col-lg-7">
+                <input type="text" name="cidade" id="cidade" value="" placeholder="Digite seu CPF" class="form-control">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="tipo" class="col-lg-3 control-label optional">Tipo de Conta</label>
+            <div class="col-lg-7">
+                <label><input name="perfil" type="radio" value="Associado" />Associado</label>
+                <label><input name="perfil" type="radio" value="Assistido" />Assistido</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-9">
+                <button type="button">Finalizar Cadastro</button>
+            </div>
+        </div>
+    </body>
+</html>
