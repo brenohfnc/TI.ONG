@@ -28,17 +28,17 @@
 })();
 
 function NavegarParaPagina(pageName) {
-    window.location = pageName;
+    window.location.href = pageName;
 }
 
 function MostrarErros(xhr) {
-    $('.alert-danger').children('span').html(JSON.parse(xhr.responseText).ErrorMessage);
-    $('.alert-danger').show();
+    $('.alert').children('p').html(JSON.parse(xhr.responseText).ErrorMessage);
+    $('.alert').removeClass('alert-sucesso').addClass('alert-erro').show();
 }
 
 function MostrarSucessos(successMsg) {
-    $('.alert-success').children('span').html(successMsg);
-    $('.alert-success').show();
+    $('.alert').children('p').html(successMsg);
+    $('.alert').removeClass('alert-erro').addClass('alert-sucesso').show();
 }
 
 function SalvarSessao(obj) {
@@ -53,9 +53,10 @@ function GetSessao() {
 }
 
 function VerificarLogado() {
-    if (GetSessao() == null || GetSessao == {}) {
+    if (GetSessao() == null) {
         NavegarParaPagina('index.html');
     }
+    return true;
 }
 
 function FazerLogout() {
@@ -71,6 +72,35 @@ function ValidarCampos() {
     return $('form').valid();
 }
 
+function FormatarDate(date) {
+    date = new Date(date);
+    var dd = date.getDate();
+    var mm = date.getMonth() + 1;
+
+    var yyyy = date.getFullYear();
+    if (dd < 10) {
+        dd = '0' + dd;
+    }
+    if (mm < 10) {
+        mm = '0' + mm;
+    }
+    return dd + '/' + mm + '/' + yyyy;
+}
+
+function AjaxCall(url, method, data, successHandler) {
+    $.ajax({
+        url: url,
+        type: method,
+        contentType: 'application/json',
+        dataType: 'json',
+        data: data
+    })
+    .done(successHandler)
+    .error(function (xhr) {
+        MostrarErros(xhr);
+    });
+}
+
 $(document).ajaxStart(function () {
     $('.alert-danger').hide();
     $(".loader").css("display", "block");
@@ -78,10 +108,6 @@ $(document).ajaxStart(function () {
 
 $(document).ajaxComplete(function () {
     $(".loader").css("display", "none");
-});
-
-$(document).on('click', '.close', function () {
-    $(this).parent('.alert').hide();
 });
 
 
